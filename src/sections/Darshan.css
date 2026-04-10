@@ -1,0 +1,323 @@
+/* ============================================
+   BRAHMAKOSH — Refined Digital Darshan
+   Pinned Manifestation Showcase
+   ============================================ */
+
+.darshan {
+  position: relative;
+  background: #0a0705; /* Blackish brown for depth */
+  overflow: visible;
+}
+
+.darshan-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* --- Mandala Aura Background --- */
+.mandala-aura-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vh;
+  height: 90vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mandala-line {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(212, 165, 32, 0.15);
+  border-radius: 50%;
+  animation: mandala-rotate 20s linear infinite;
+}
+
+.mandala-line:nth-child(2) {
+  inset: 10%;
+  border-style: dashed;
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+
+.mandala-line:nth-child(3) {
+  inset: 20%;
+  border-width: 2px;
+  opacity: 0.1;
+  animation-duration: 45s;
+}
+
+@keyframes mandala-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.darshan-bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw;
+  height: 150vh;
+  background: radial-gradient(circle, var(--glow-color, rgba(212,165,32,0.2)) 0%, transparent 70%);
+  z-index: 0;
+  transition: background 1.5s ease;
+  filter: blur(60px);
+}
+
+/* --- Content Layout --- */
+.darshan-content-fixed {
+  position: relative;
+  width: 100%;
+  max-width: var(--content-max);
+  height: 100vh;
+  margin: 0 auto;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 60px 60px; /* Added significant top padding for Navbar clearance */
+}
+
+.deity-manifest-box {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95);
+  transition: none; /* Controlled by GSAP */
+}
+
+/* --- Left Side: Deity Image --- */
+.deity-visual-column {
+  flex: 1.2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deity-visual-column img {
+  width: 100%;
+  max-width: 440px; /* Reduced slightly to prevent vertical clipping */
+  max-height: 70vh; /* Ensure it never exceeds viewport height */
+  height: auto;
+  aspect-ratio: 4/5.5;
+  object-fit: cover;
+  border-radius: 40px;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.deity-glow-ring {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, var(--glow-color, rgba(212,165,32,0.6)) 0%, transparent 60%);
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(30px);
+}
+
+/* --- Right Side: Deity Info --- */
+.deity-info-column {
+  flex: 1;
+  color: #fff;
+  text-align: left;
+}
+
+.deity-info-column h4 {
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-rich);
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.deity-name-main {
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  line-height: 1;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-shadow: 0 0 30px rgba(212, 165, 32, 0.3);
+}
+
+.deity-shlok {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--surface-cream);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 30px;
+  border-left: 2px solid var(--gold);
+  white-space: pre-line; /* Support manual breaks */
+}
+
+.deity-shlok::before {
+  content: '“';
+  position: absolute;
+  left: -10px;
+  top: -20px;
+  font-size: 4rem;
+  opacity: 0.15;
+  color: var(--gold);
+}
+
+/* --- Progress Indicator --- */
+.darshan-nav-vertical {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 20;
+}
+
+.nav-dot-darshan {
+  width: 4px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.nav-dot-darshan.active {
+  background: var(--gold-rich);
+  height: 60px;
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+/* --- Header Section Label --- */
+.darshan-header-overlay {
+  position: absolute;
+  top: 100px; /* Aligned below navbar */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .darshan {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .darshan-header-overlay {
+    top: 80px;
+  }
+  
+  .darshan-content-fixed {
+    padding: 120px 20px 40px;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .deity-manifest-box {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+    height: 80vh;
+    height: 80dvh;
+  }
+  
+  .deity-visual-column img {
+    max-width: 260px;
+    max-height: 40vh;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+  
+  .deity-info-column {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  
+  .deity-info-column h4 {
+    margin-bottom: 12px;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .deity-name-main {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    margin-bottom: 16px;
+  }
+  
+  .deity-shlok {
+    font-size: 1rem;
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--gold);
+    padding-top: 16px;
+    max-width: 100%;
+  }
+
+  .deity-shlok::before {
+    display: none;
+  }
+
+  /* Progress indicator for mobile - horizontal bottom */
+  .darshan-nav-vertical {
+    right: auto;
+    left: 50%;
+    bottom: 30px;
+    top: auto;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .nav-dot-darshan {
+    width: 20px;
+    height: 3px;
+  }
+
+  .nav-dot-darshan.active {
+    width: 40px;
+    height: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deity-visual-column img {
+    max-width: 220px;
+    max-height: 35vh;
+  }
+  
+  .deity-name-main {
+    font-size: 2.2rem;
+  }
+  
+  .deity-shlok {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .darshan-header-overlay h2 {
+    font-size: 1.5rem;
+  }
+}

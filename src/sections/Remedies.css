@@ -1,0 +1,350 @@
+/* ============================================
+   BRAHMAKOSH — Remedies Section
+   Sacred Divine Healing & Tools
+   ============================================ */
+
+.remedies {
+  position: relative;
+  padding: var(--section-pad) 0;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.remedies-container {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.remedies-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px;
+}
+
+.section-label {
+  margin-bottom: 12px;
+}
+
+/* --- Bazaar Brand Section --- */
+.bazaar-brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  animation: bazaar-entrance 1.2s var(--ease-out) forwards;
+}
+
+@keyframes bazaar-entrance {
+  0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.bazaar-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(253, 246, 227, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 28px;
+  border-radius: 100px;
+  border: 1px solid rgba(184, 148, 31, 0.25);
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(184, 148, 31, 0.12), 
+              inset 0 0 15px rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-smooth);
+}
+
+.bazaar-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 55%
+  );
+  animation: badge-shimmer 4s infinite linear;
+}
+
+@keyframes badge-shimmer {
+  0% { transform: translate(-30%, -30%) rotate(0deg); }
+  100% { transform: translate(30%, 30%) rotate(0deg); }
+}
+
+.bazaar-badge-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(212, 165, 32, 0.6));
+  animation: divine-icon-float 3s ease-in-out infinite alternate;
+}
+
+@keyframes divine-icon-float {
+  0% { transform: translateY(0) rotate(-5deg) scale(1); filter: brightness(1); }
+  100% { transform: translateY(-4px) rotate(5deg) scale(1.1); filter: brightness(1.2) drop-shadow(0 0 12px rgba(212, 165, 32, 0.8)); }
+}
+
+.bazaar-badge span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-rich);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  position: relative;
+  z-index: 1;
+}
+
+.bazaar-badge:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--gold-rich);
+  box-shadow: 0 15px 40px rgba(184, 148, 31, 0.2);
+}
+
+.remedies-header .bazaar-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.8rem, 12vw, 7.5rem);
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin: 0;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+}
+
+.remedies-header .bazaar-title em {
+  font-style: italic;
+  color: var(--gold-rich);
+}
+
+.remedies-header h2 {
+  margin: 15px 0;
+  font-size: clamp(2.4rem, 6vw, 4rem); /* Slightly larger than default as requested before, but matching the feel */
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.remedies-header h2 em {
+  font-style: italic;
+  color: var(--gold-rich);
+}
+
+/* --- Category Grid --- */
+.remedies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.remedy-card {
+  position: relative;
+  background: var(--surface-white);
+  border: 1px solid rgba(184, 148, 31, 0.08); /* Synchronized with Services */
+  border-radius: 24px;
+  padding: 40px;
+  overflow: hidden;
+  transition: all 0.5s var(--ease-smooth);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(28, 17, 8, 0.04);
+}
+
+.remedy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.25; /* Partially visible by default */
+  transition: opacity 0.5s ease;
+  z-index: 2;
+}
+
+.remedy-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(184, 148, 31, 0.12); /* Enhanced attractive depth */
+  border-color: var(--gold-light);
+}
+
+.remedy-card:hover::before {
+  opacity: 1;
+}
+
+.remedy-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remedy-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.remedy-card:hover .remedy-image-wrapper img {
+  transform: scale(1.18); /* More 'attractive' magnetic scaling */
+}
+
+.remedy-glow {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 65%);
+  z-index: 1;
+  opacity: 0.45; /* Persistent glow as requested */
+  transition: all 0.6s var(--ease-smooth);
+  animation: divine-breathing 4s ease-in-out infinite alternate;
+}
+
+.remedy-card:hover .remedy-glow {
+  opacity: 1;
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+@keyframes divine-breathing {
+  0% { transform: scale(0.95); opacity: 0.35; }
+  100% { transform: scale(1.05); opacity: 0.55; }
+}
+
+.remedy-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+}
+
+.remedy-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.remedy-btn {
+  margin-top: auto;
+  padding: 12px 28px;
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  color: var(--gold-rich);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.remedy-card:hover .remedy-btn {
+  background: var(--gold-rich);
+  color: #fff;
+  border-color: var(--gold-rich);
+}
+
+/* --- Trust Banner --- */
+.remedies-trust {
+  background: var(--surface-warm);
+  border-radius: 30px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  border: 1px solid rgba(184, 148, 31, 0.1);
+}
+
+.trust-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 300px;
+}
+
+.trust-block-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--surface-white);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-rich);
+  box-shadow: 0 4px 12px rgba(28, 17, 8, 0.04);
+}
+
+.trust-block h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.trust-block span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1100px) {
+  .remedies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .remedies-trust {
+    padding: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .remedies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px; /* Tighter gap for mobile */
+  }
+
+  .remedy-card {
+    padding: 20px 15px; /* Reduced padding for 2-column fit */
+  }
+
+  .remedy-card h3 {
+    font-size: 1.1rem; /* Smaller font for mobile grid */
+  }
+
+  .remedy-card p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .remedy-btn {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .remedies-container {
+    padding: 0 15px;
+  }
+}
