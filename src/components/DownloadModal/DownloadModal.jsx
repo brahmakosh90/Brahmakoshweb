@@ -30,7 +30,7 @@ export default function DownloadModal({ isOpen, onClose }) {
         </button>
         
         <h2>Begin Your Journey</h2>
-        <p>Select your device's app store to download the Brahmakosh app and unlock divine insights.</p>
+        <p>The Brahmakosh app is currently in its final purification. Unlock divine insights on your mobile device very soon.</p>
         
         <div className="modal-options">
           <button className="store-btn apple">
@@ -41,6 +41,7 @@ export default function DownloadModal({ isOpen, onClose }) {
               <span>Download on the</span>
               <strong>App Store</strong>
             </div>
+            <span className="coming-soon-badge">Coming Soon</span>
           </button>
           
           <button className="store-btn playstore">
@@ -51,6 +52,7 @@ export default function DownloadModal({ isOpen, onClose }) {
               <span>GET IT ON</span>
               <strong>Google Play</strong>
             </div>
+            <span className="coming-soon-badge">Coming Soon</span>
           </button>
         </div>
       </div>
