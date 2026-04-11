@@ -102,8 +102,8 @@ export default function App() {
         <Suspense fallback={null}>
           <About />
           <Guides />
-          <ConnectAstrologer />
-          <DivineEcosystem />
+          <ConnectAstrologer openDownloadModal={() => setDownloadModalOpen(true)} />
+          <DivineEcosystem openDownloadModal={() => setDownloadModalOpen(true)} />
           <Remedies openBazarModal={() => setBazarModalOpen(true)} />
           {/* <Darshan /> */}
           <SpiritualAction />
@@ -113,6 +113,7 @@ export default function App() {
           <GlobalPresence />
           <DownloadCTA openDownloadModal={() => setDownloadModalOpen(true)} />
           <SpiritualOS
+            openDownloadModal={() => setDownloadModalOpen(true)}
             openWaniModal={() => setWaniModalOpen(true)}
             openBazarModal={() => setBazarModalOpen(true)}
           />

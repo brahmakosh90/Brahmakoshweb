@@ -79,7 +79,7 @@ const allExperts = [
   }
 ]
 
-export default function ConnectAstrologer() {
+export default function ConnectAstrologer({ openDownloadModal }) {
   const [activeTab, setActiveTab] = useState('Top Rated')
 
   const filteredExperts = allExperts.filter(expert => 
@@ -145,14 +145,14 @@ export default function ConnectAstrologer() {
                   </div>
 
                   <div className="expert-actions">
-                    <button className="chat-mini-btn">
+                    <button className="chat-mini-btn" onClick={openDownloadModal}>
                       <MessageSquare size={16} />
                       Chat
                     </button>
-                    <button className="call-mini-btn">
+                    <button className="call-mini-btn" onClick={openDownloadModal}>
                       <Phone size={16} />
                     </button>
-                    <button className="video-mini-btn" title="Video Call">
+                    <button className="video-mini-btn" onClick={openDownloadModal} title="Video Call">
                       <Video size={16} />
                     </button>
                   </div>
@@ -161,7 +161,7 @@ export default function ConnectAstrologer() {
             </div>
 
             <div className="board-footer">
-              <button className="view-all-experts">
+              <button className="view-all-experts" onClick={openDownloadModal}>
                 Explore All Experts <ArrowRight size={18} />
               </button>
             </div>

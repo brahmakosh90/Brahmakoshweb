@@ -19,7 +19,7 @@ import './DivineEcosystem.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function DivineEcosystem() {
+export default function DivineEcosystem({ openDownloadModal }) {
   const [activeScreen, setActiveScreen] = useState(0)
   const screens = [
     onboarding1, onboarding2, onboarding3, onboarding4, onboarding5,
@@ -172,7 +172,7 @@ export default function DivineEcosystem() {
               </div>
             </div>
 
-            <button className="btn-primary" style={{ marginTop: '20px', width: 'fit-content' }}>
+            <button className="btn-primary" onClick={openDownloadModal} style={{ marginTop: '20px', width: 'fit-content' }}>
               Experience the App <ArrowRight size={20} />
             </button>
           </div>

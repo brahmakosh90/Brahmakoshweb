@@ -19,7 +19,7 @@ const modules = [
   { icon: shalaLogo, name: 'Brahmshaala', desc: 'Cosmic Practice' },
 ]
 
-export default function SpiritualOS({ openWaniModal, openBazarModal }) {
+export default function SpiritualOS({ openWaniModal, openBazarModal, openDownloadModal }) {
   return (
     <section className="spiritual-os" id="spiritual-os">
       <div className="os-particles">
@@ -92,11 +92,11 @@ export default function SpiritualOS({ openWaniModal, openBazarModal }) {
         </div>
 
         <div className="os-footer reveal-up">
-          <div className="os-coming-soon-badge">
+          <div className="os-coming-soon-badge" onClick={openDownloadModal} style={{ cursor: 'pointer' }}>
             <div className="badge-aura" />
             <div className="badge-shimmer" />
             <img src={logo} alt="" className="badge-mini-logo" />
-            <span>Coming Soon to Your <em>Digital Soul</em></span>
+            <span>Available Now for Your <em>Digital Soul</em></span>
           </div>
         </div>
       </div>

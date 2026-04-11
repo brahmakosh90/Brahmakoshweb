@@ -83,7 +83,8 @@
   padding: 16px 20px;
   width: 100%;
   color: white;
-  cursor: default; /* Change from pointer to default since it's coming soon */
+  text-decoration: none;
+  cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
