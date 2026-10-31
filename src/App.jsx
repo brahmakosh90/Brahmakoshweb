@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState, lazy, Suspense } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import DeleteAccount from './pages/DeleteAccount'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 import Particles from './sections/Particles'
 import Navigation from './sections/Navigation'
@@ -42,6 +45,7 @@ export default function App() {
 
   useEffect(() => {
     // Only initialize GSAP if not loading or if we want to pick up elements as they mount
+    if (!appRef.current) return
     const ctx = gsap.context(() => {
       const initReveals = () => {
         gsap.utils.toArray('.reveal-up:not(.initialized)').forEach(el => {
@@ -78,7 +82,7 @@ export default function App() {
 
       // Re-run on a small interval or MutationObserver to catch lazy items
       const observer = new MutationObserver(initReveals);
-      observer.observe(appRef.current, { childList: true, subtree: true });
+      if (appRef.current) observer.observe(appRef.current, { childList: true, subtree: true });
 
       return () => observer.disconnect();
     }, appRef)
@@ -87,6 +91,10 @@ export default function App() {
   }, [])
 
   return (
+    <Routes>
+      <Route path="/delete-account" element={<DeleteAccount />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="*" element={
     <div ref={appRef} className="app-container">
       <Preloader onComplete={() => setLoading(false)} />
 
@@ -138,5 +146,7 @@ export default function App() {
         onClose={() => setBazarModalOpen(false)}
       />
     </div>
+      } />
+    </Routes>
   )
 }

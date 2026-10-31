@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/imagesFromApp/brahmkosh_logo.jpeg'
 import './Footer.css'
 
@@ -35,7 +36,8 @@ export default function Footer({ openDownloadModal }) {
             <a href="#about">About Us</a>
             <a href="#global">Contact Us</a>
             <a href="#" onClick={(e) => { e.preventDefault(); openDownloadModal(); }}>Download App</a>
-            <a href="#">Privacy Policy</a>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/delete-account">Delete Account</Link>
           </div>
         </div>
         <div className="footer-bottom">
